@@ -1,3 +1,4 @@
 RewriteEngine On
 RewriteBase /database/
 RewriteRule ^save/?$ insert_script.php [L]
+RewriteRule ^posts/?$ posts.php [L]

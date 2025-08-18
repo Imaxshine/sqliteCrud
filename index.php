@@ -15,6 +15,21 @@ require_once __DIR__ . "/conn.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User Registration</title>
     <style>
+        .myDialog #myDialog{
+            width: 300px;
+            /* height: 200px; */
+            border: none;
+            position: relative;
+        }
+        .closeBtn{
+            position: absolute;
+            top: 2px;
+            right: 2px;
+        }
+        .myDialog #myDialog::backdrop{
+            backdrop-filter: 3px;
+            background: rgba(0,0,0,0.4);
+        }
         .container{
             height: 100vh;
             align-content: center;
@@ -28,20 +43,33 @@ require_once __DIR__ . "/conn.php";
     </style>
 </head>
 <body>
+
+<div class="myDialog">
+    <dialog id="myDialog">
+        <p id="text">
+            
+        </p>
+        <button class="closeBtn btn btn-danger" onclick="document.getElementById('myDialog').close();">close</button>
+    </dialog>
+</div>
+
 <div class="container bg-body-secondary">
     <div class="formHolder">
 
         <form id="myForm">
 
             <h3>Registration form</h3>
+            <p class="text-end">
+                <button type="button" class="btn btn-success fw-bold" onclick="OpenPosts()">Open Posts</button>
+            </p>
 
-            <input class="form-control my-3" id="name" type="text" name="userName" placeholder="User name" required>
+            <input class="form-control my-3" id="name" type="text" name="userName" placeholder="User name">
 
-            <input class="form-control my-3" id="email" type="text" name="email" placeholder="Email" required>
+            <input class="form-control my-3" id="email" type="text" name="email" placeholder="Email">
 
-            <input class="form-control my-3" id="password" type="password" name="password" placeholder="Your password" required>
+            <input class="form-control my-3" id="password" type="password" name="password" placeholder="Your password">
 
-            <button class="btn btn-success w-100" type="submit" onclick="SaveBtn()"> Save </button>
+            <button class="btn btn-success w-100" type="submit"> Save </button>
         </form>
     </div>
 </div>

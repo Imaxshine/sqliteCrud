@@ -1,4 +1,10 @@
 <?php
+error_reporting(0);
+
+if ($_SERVER['REQUEST_METHOD'] == "GET"){
+    echo "Invalid request method!";
+    exit();
+}
 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])){
     $name = strip_tags($_POST['name']);
     $email = strip_tags($_POST['email']);
@@ -14,12 +20,13 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
         $insert->bindValue(':pass', $password);
         $insert->execute();
         if ($insert){
-            echo "User Added successfully";
+            echo "<p class='alert alert-success'>User Added successfully</p>";
         }else{
-            echo "Failed to add a new user";
+            echo "<p class='alert alert-danger'>Failed to add a new user</p>";
         }
     }
     InsertData($name, $email, $pass);
 
 }
+
 //echo "insert_script";

@@ -1,10 +1,15 @@
-function SaveBtn(){
     document.querySelector('#myForm').addEventListener('submit', async ev => {
         ev.preventDefault()
        try {
            let userName = document.getElementById('name').value;
            let userEmail = document.getElementById('email').value;
            let password = document.getElementById('password').value;
+
+           function Dialog(text){
+            document.getElementById('text').innerHTML = text;
+            document.getElementById('text').style.marginTop = "26px";
+            document.getElementById('myDialog').showModal();
+           }
 
            let Data = new FormData()
            // Add values to the form data
@@ -20,12 +25,27 @@ function SaveBtn(){
            });
            if (response.ok){
                let readFeedBack = await response.text()
-               console.log(readFeedBack)
+               Dialog(readFeedBack)
            }
 
        }catch (error){
             console.log(error);
        }
 
-    })
+    });
+
+    // Open Posts Method
+function OpenPosts(){
+    function Dialog(text){
+        document.getElementById('myDialog').style.height = "auto";
+        document.getElementById('myDialog').style.width = "80vw";
+
+        document.getElementById('text').innerHTML = text;
+        document.getElementById('text').style.marginTop = "26px";
+        document.getElementById('myDialog').showModal();
+    }
+
+    
+    Dialog("Postst over here!")
+
 }
