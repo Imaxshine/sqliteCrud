@@ -9,12 +9,27 @@ require_once __DIR__ . "/conn.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posts Roles</title>
     <style>
+        .myDialog{
+            border: none;
+            width: 95vw;
+        }
+        .myDialog::backdrop{
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(3px);
+        }
         .tableHolder{
 
         }
     </style>
 </head>
 <body>
+    <div>
+        <dialog class="myDialog" id="myDialog">
+            <p id="text">
+                <!--        web view over here      -->
+            </p>
+        </dialog>
+    </div>
     <div class="tableHolder">
         <table class="table table-dark hover">
             <tr>
@@ -43,7 +58,7 @@ require_once __DIR__ . "/conn.php";
 
                         <td>
                             <form id="edit">
-                                <input class="edit" type=""  id="editId" value="<?= $data['id']; ?>">
+<!--                                <input class="edit" type=""  id="editId" value="--><?php //= $data['id']; ?><!--">-->
                                 <button type="button" class="btn btn-primary text-capitalize" onclick="EditData(this)"
                                 data-editId="<?= $data['id'];  ?>"
                                 >edit</button>

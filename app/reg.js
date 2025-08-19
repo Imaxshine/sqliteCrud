@@ -35,7 +35,7 @@
     });
 
     // Open Posts Method
-function OpenPosts(){
+async function OpenPosts(){
     function Dialog(text){
         document.getElementById('myDialog').style.height = "auto";
         document.getElementById('myDialog').style.width = "80vw";
@@ -44,8 +44,19 @@ function OpenPosts(){
         document.getElementById('text').style.marginTop = "26px";
         document.getElementById('myDialog').showModal();
     }
+    let Path = window.location.origin;
+    let MainPath = `${Path}/database/posts`
 
+    let features = "width=800,height=600,left=200,top=100,"+
+                          "menubar=no,toolbar=no,location=no,status=no,"+
+                         "resizable=yes,scrollbars=yes";
+
+
+    window.open(MainPath, "", features);
+
+    // console.log(response);
     
-    Dialog("Postst over here!")
+    // Dialog(MainPath)
 
 }
+
