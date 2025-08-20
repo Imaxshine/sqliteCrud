@@ -2,4 +2,5 @@ RewriteEngine On
 RewriteBase /database/
 RewriteRule ^save/?$ insert_script.php [L]
 RewriteRule ^posts/?$ posts.php [L]
-RewriteRule ^edit/?$ edit_script.php [L]
+RewriteRule ^edit/?$ edit_form.php [L]
+RewriteRule ^process_edit/?$ edit_script.php [L]
