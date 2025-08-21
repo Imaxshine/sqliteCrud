@@ -18,7 +18,16 @@ require_once __DIR__ . "/conn.php";
             backdrop-filter: blur(3px);
         }
         .tableHolder{
-
+            border: 1px solid #ccdccd;
+            width: 95vw;
+            height: 100vh;
+            overflow: auto;
+            margin: 0 auto;
+            padding: 4px;
+        }
+        .table .titles{
+            position: sticky;
+            top: 0;
         }
     </style>
 </head>
@@ -32,7 +41,7 @@ require_once __DIR__ . "/conn.php";
     </div>
     <div class="tableHolder">
         <table class="table table-dark hover">
-            <tr>
+            <tr class="titles">
                 <th>#</th>
                 <th>Name</th>
                 <th>Email</th>
@@ -67,8 +76,10 @@ require_once __DIR__ . "/conn.php";
 
                         <td>
                             <form id="delete">
-                                <input type="hidden"  id="deleteId">
-                                <button class="btn btn-danger">Delete</button>
+<!--                                <input type="hidden"  id="deleteId">-->
+                                <button type="button" class="btn btn-danger" onclick="DeleteUser(this)"
+                                        data-deleteId="<?= $data['id']; ?>"
+                                        data-userName="<?= $data['username']; ?>" >Delete</button>
                             </form>
                         </td>
 

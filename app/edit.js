@@ -4,6 +4,7 @@ document.getElementById('myForm').addEventListener('submit',  function(event){
 
     async function Edit(details){
        try{
+           document.getElementById('results').innerHTML = `<p class="alert alert-info">Please wait a moment...</p>`;
            const Name = document.getElementById('name').value;
            const Email = document.getElementById('email').value;
            const uniqId = details.getAttribute('data-userId')
@@ -22,11 +23,22 @@ document.getElementById('myForm').addEventListener('submit',  function(event){
           if (responses.ok){
               // Read responses as JSON;
               let feedBack = await responses.json()
-              console.log(feedBack);
+              if (feedBack.message){
+                  document.getElementById('results').innerHTML = `${feedBack.message}`;
+                  setTimeout(()=>{
+                      document.getElementById('results').style.display = "none";
+                      window.close();
+                  }, 4000);
+
+              }else{
+                  document.getElementById('results').innerHTML = `${feedBack.error}`;
+              }
+          }else{
+              document.getElementById('results').innerHTML = `<p class="alert alert-danger">Something went wrong, try again later</p>`;
           }
 
        }catch (e) {
-
+           document.getElementById('results').innerHTML = `<p class="alert alert-danger"> Oops! Some errors occur, try again later.</p>`;
        }
     }
 

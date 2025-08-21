@@ -5,6 +5,18 @@
            let userEmail = document.getElementById('email').value;
            let password = document.getElementById('password').value;
 
+           if (userName.trim() === ""){
+               Dialog('<span class="alert alert-info">Username field is required! </span>');
+               return;
+           }
+           if (userEmail.trim() === ""){
+               Dialog('<span class="alert alert-info">User email field is required! </span>');
+               return;
+           }
+           if (password.trim() === ""){
+               Dialog('<span class="alert alert-info">Password field is required! </span>');
+               return;
+           }
            function Dialog(text){
             document.getElementById('text').innerHTML = text;
             document.getElementById('text').style.marginTop = "26px";
@@ -26,6 +38,9 @@
            if (response.ok){
                let readFeedBack = await response.text()
                Dialog(readFeedBack)
+               document.getElementById('name').value = "";
+               document.getElementById('email').value = "";
+               document.getElementById('password').value = "";
            }
 
        }catch (error){
@@ -58,5 +73,14 @@ async function OpenPosts(){
     
     // Dialog(MainPath)
 
+}
+function Save(){
+    Dialog(`<span class="alert alert-info">Please wait a moment...</span>`);
+    function Dialog(text){
+        document.getElementById('text').innerHTML = "";
+        document.getElementById('text').innerHTML = text;
+        document.getElementById('text').style.marginTop = "26px";
+        document.getElementById('myDialog').showModal();
+    }
 }
 

@@ -69,7 +69,7 @@ require_once __DIR__ . "/conn.php";
 
             <input class="form-control my-3" id="password" type="password" name="password" placeholder="Your password">
 
-            <button class="btn btn-success w-100" type="submit"> Save </button>
+            <button class="btn btn-success w-100" type="submit" onclick="Save()"> Save </button>
         </form>
     </div>
 </div>

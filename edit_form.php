@@ -84,10 +84,10 @@ if (isset($_GET['id'])){
                     </span>
                 <?php  endif; ?>
 
-                <span id="results">
-                            <!--    All output            -->
-                </span>
+            </p>
 
+            <p id="results">
+                <!--    All output            -->
             </p>
 
             <h3>Edit <?= ucfirst($data['username']); ?> Information</h3>
