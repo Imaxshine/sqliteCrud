@@ -80,9 +80,9 @@ if (isset($_GET['id'])){
                 <?php
                 if (!empty($error)):?>
                     <span class="alert alert-danger">
-                        <?= $error; exit(); ?>
+                        <?= $error;  ?>
                     </span>
-                <?php  endif; ?>
+                <?php exit(); endif; ?>
 
             </p>
 
